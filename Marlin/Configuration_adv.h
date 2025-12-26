@@ -941,7 +941,7 @@
  * the position of the toolhead relative to the workspace.
  */
 
-//#define SENSORLESS_BACKOFF_MM  { 2, 2, 0 }  // (linear=mm, rotational=°) Backoff from endstops before sensorless homing
+//#define SENSORLESS_BACKOFF_MM  { 2, 2, 0 }  // (linear=mm, rotational=°) Backoff from endstops before sensorless homing #
 
 #define HOMING_BUMP_MM      { 5, 5, 2 }       // (linear=mm, rotational=°) Backoff from endstops after first bump
 #define HOMING_BUMP_DIVISOR { 2, 2, 4 }       // Re-Bump Speed Divisor (Divides the Homing Feedrate)
@@ -1485,7 +1485,7 @@
 //#define MICROSTEP32 HIGH,LOW,HIGH
 
 // Microstep settings (Requires a board with pins named X_MS1, X_MS2, etc.)
-#define MICROSTEP_MODES { 16, 16, 16, 16, 16, 16 } // [1,2,4,8,16]
+#define MICROSTEP_MODES { 16, 16, 16, 16, 16, 16 } // [1,2,4,8,16] // #
 
 /**
  * @section stepper motor current
@@ -1805,7 +1805,7 @@
    * Reinit the LCD after SD Card insert/remove or when entering the menu.
    * Required for some LCDs that use shared SPI with an external SD Card reader.
    */
-  #define REINIT_NOISY_LCD
+  // #define REINIT_NOISY_LCD
 
   // The standard SD detect circuit reads LOW when media is inserted and HIGH when empty.
   // Enable this option and set to HIGH if your SD cards are incorrectly detected.
@@ -2709,8 +2709,8 @@
  *
  * Override the default value based on the driver type set in Configuration.h.
  */
-//#define MINIMUM_STEPPER_POST_DIR_DELAY 650
-//#define MINIMUM_STEPPER_PRE_DIR_DELAY 650
+//#define MINIMUM_STEPPER_POST_DIR_DELAY 650 // #
+//#define MINIMUM_STEPPER_PRE_DIR_DELAY 650  // #
 
 /**
  * Minimum stepper driver pulse width (in ns)
@@ -2724,7 +2724,7 @@
  *
  * Override the default value based on the driver type set in Configuration.h.
  */
-//#define MINIMUM_STEPPER_PULSE_NS 2000
+//#define MINIMUM_STEPPER_PULSE_NS 2000 // #
 
 /**
  * Maximum stepping rate (in Hz) the stepper driver allows
@@ -2738,7 +2738,7 @@
  *
  * Override the default value based on the driver type set in Configuration.h.
  */
-//#define MAXIMUM_STEPPER_RATE 250000
+//#define MAXIMUM_STEPPER_RATE 250000 // #
 
 // @section temperature
 
@@ -3128,7 +3128,7 @@
 
   #define HOLD_MULTIPLIER    0.5  // Scales down the holding current from run current
 
-  //#define EDITABLE_HOMING_CURRENT   // Add a G-code and menu to modify the Homing Current
+  //#define EDITABLE_HOMING_CURRENT   // Add a G-code and menu to modify the Homing Current #
 
   /**
    * Interpolate microsteps to 256
@@ -3520,7 +3520,7 @@
    * M912 - Clear stepper driver overtemperature pre-warn condition flag.
    * M122 - Report driver parameters (Requires TMC_DEBUG)
    */
-  //#define MONITOR_DRIVER_STATUS
+  //#define MONITOR_DRIVER_STATUS // #
 
   #if ENABLED(MONITOR_DRIVER_STATUS)
     #define CURRENT_STEP_DOWN     50  // [mA]
@@ -3537,7 +3537,7 @@
    * STEALTHCHOP_(XY|Z|E) must be enabled to use HYBRID_THRESHOLD.
    * M913 X/Y/Z/E to live tune the setting
    */
-  //#define HYBRID_THRESHOLD
+  //#define HYBRID_THRESHOLD // #
 
   #define X_HYBRID_THRESHOLD     100  // [mm/s]
   #define X2_HYBRID_THRESHOLD    100
@@ -3588,15 +3588,15 @@
    * Comment *_STALL_SENSITIVITY to disable sensorless homing for that axis.
    * @section tmc/stallguard
    */
-  //#define SENSORLESS_HOMING // StallGuard capable drivers only
+  //#define SENSORLESS_HOMING // StallGuard capable drivers only #
 
   #if ANY(SENSORLESS_HOMING, SENSORLESS_PROBING)
     // TMC2209: 0...255. TMC2130: -64...63
-    #define X_STALL_SENSITIVITY  8
+    #define X_STALL_SENSITIVITY  8 // #
     #define X2_STALL_SENSITIVITY X_STALL_SENSITIVITY
-    #define Y_STALL_SENSITIVITY  8
+    #define Y_STALL_SENSITIVITY  8 // #
     #define Y2_STALL_SENSITIVITY Y_STALL_SENSITIVITY
-    //#define Z_STALL_SENSITIVITY  8
+    //#define Z_STALL_SENSITIVITY  8 // #
     //#define Z2_STALL_SENSITIVITY Z_STALL_SENSITIVITY
     //#define Z3_STALL_SENSITIVITY Z_STALL_SENSITIVITY
     //#define Z4_STALL_SENSITIVITY Z_STALL_SENSITIVITY
@@ -3607,8 +3607,8 @@
     //#define V_STALL_SENSITIVITY  8
     //#define W_STALL_SENSITIVITY  8
     //#define SPI_ENDSTOPS              // TMC2130, TMC2240, and TMC5160
-    //#define IMPROVE_HOMING_RELIABILITY
-    //#define SENSORLESS_STALLGUARD_DELAY   0 // (ms) Delay to allow drivers to settle
+    //#define IMPROVE_HOMING_RELIABILITY // #
+    //#define SENSORLESS_STALLGUARD_DELAY   0 // (ms) Delay to allow drivers to settle #
 
     #if HAS_MARLINUI_MENU
       // Convenient homing menu items next to Sensorless Homing edit items
